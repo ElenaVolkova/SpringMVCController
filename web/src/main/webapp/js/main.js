@@ -1,6 +1,8 @@
 $(document).ready(function () {
 
     $("#checkTriangleButton").bind("click", function() {
+        var host = location.protocol + '//' + location.host;
+
         var checkTriangleData = {};
         checkTriangleData.a = $("#checkTriangleA").val();
         checkTriangleData.b = $("#checkTriangleB").val();
@@ -8,7 +10,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: "POST",
-            url: "http://localhost:8080/triangle/checkTriangle",
+            url: host + "/triangle/checkTriangle",
             data: JSON.stringify(checkTriangleData),
             contentType: "application/json; charset=utf-8",
             success : function(response) {
